@@ -2,7 +2,7 @@
 ============
 
 请确保你是 **Ubuntu18.04** ，python版本为 **3.7** 
-如果你仅仅是想安装python-pcl，那么请下载本仓库，找到dist目录并进入该目录，找到python_pcl-0.3.0rc1-cp37-cp37m-linux_x86_64.whl文件，执行如下命令直接安装。后面的步骤就不用看了.
+如果你仅仅是想安装python-pcl，那么请下载本仓库，找到dist目录并进入该目录，找到 **python_pcl-0.3.0rc1-cp37-cp37m-linux_x86_64.whl** 文件，执行如下命令直接安装。后面的步骤就不用看了.
 
  `pip3 install python_pcl-0.3.0rc1-cp37-cp37m-linux_x86_64.whl` 
 
@@ -10,7 +10,7 @@ ubuntu18通过 **sudo apt-get install libpcl-dev pcl-tools** 安装的 **pcl为1
 
 
 
-* 1) **libpcl-dev** 默认的vtk依赖是 **6.3** ，而 **python-pcl中的setup.py文件里的vtk版本是 7.0** ，所以需要修改``setup.py``文件726行``vtk_version = '7.0'``为``vtk_version = '6.3'``
+* 1) **libpcl-dev** 默认的vtk依赖是 **6.3** ，而 **python-pcl中的setup.py文件里的vtk版本是 7.0** ，所以需要修改setup.py文件726行vtk_version = '7.0'为vtk_version = '6.3'
 * 2) **vtk-6.3依赖库要少于vtk-7.0** ,所以删掉752行的多余的依赖库, 删掉 **'vtkXXXX-' + vtk_version** 即可，其中 **VtkXXXX** 有以下库：
 
 
