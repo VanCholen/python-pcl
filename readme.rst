@@ -10,8 +10,8 @@ ubuntu18通过 **sudo apt-get install libpcl-dev pcl-tools** 安装的 **pcl为1
 
 
 
-* 1) **libpcl-dev** 默认的vtk依赖是 **6.3** ，而 **python-pcl中的setup.py文件里的vtk版本是 7.0** ，所以需要修改setup.py文件726行vtk_version = '7.0'为vtk_version = '6.3'
-* 2) **vtk-6.3依赖库要少于vtk-7.0** ,所以删掉752行的多余的依赖库, 删掉 **'vtkXXXX-' + vtk_version** 即可，其中 **VtkXXXX** 有以下库：
+* 1) **libpcl-dev** 默认的vtk依赖是 **6.3** ，而 **python-pcl中的setup.py文件里的vtk版本是 7.0** ，所以需要 **修改setup.py文件726行** vtk_version = '7.0'为vtk_version = '6.3'
+* 2) **vtk-6.3依赖库要少于vtk-7.0** ,所以 **删掉752行** 的多余的依赖库, 删掉 **'vtkXXXX-' + vtk_version** 即可，其中 **VtkXXXX** 有以下库：
 
 
 * vtkexpat
