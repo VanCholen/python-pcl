@@ -1,9 +1,49 @@
 一些修改
 ============
 
-请确保你是 **Ubuntu18.04** ，python版本为**3.7**
+请确保你是 **Ubuntu18.04** ，python版本为 **3.7** 
 如果你仅仅是想安装python-pcl，那么请下载本仓库，找到dist目录并进入该目录，找到python_pcl-0.3.0rc1-cp37-cp37m-linux_x86_64.whl文件，执行如下命令直接安装。后面的步骤就不用看了.
 
+ `pip3 install python_pcl-0.3.0rc1-cp37-cp37m-linux_x86_64.whl` 
+
+ubuntu18通过`sudo apt-get install libpcl-dev pcl-tools`安装的**pcl为1.8版本**,而`pip install python-pcl`中的最新版本即为`0.3.0a1`,只支持`pcl-1.7`,所以版本不匹配, **修改setup.py**.
+
+
+
+* 1)`libpcl-dev`默认的`vtk`依赖是**6.3**，而`python-pcl`中的`setup.py`文件里的vtk版本是**7.0**，所以需要修改`setup.py`文件726行`vtk_version = '7.0'`为`vtk_version = '6.3'`
+* 2)vtk-6.3`依赖库要少于`vtk-7.0,所以删掉752行的多余的依赖库, 删掉`'vtkXXXX-' + vtk_version`即可，其中`VtkXXXX`有以下库：
+
+``
+vtkexpat
+vtkfreetype
+vtkgl2ps
+vtkhdf5
+vtkhdf5_hl
+vtkjpeg
+vtkjsoncpp
+vtklibxml2
+vtkNetCDF
+vtkNetCDF_cxx
+vtkoggtheora
+vtkpng
+vtkproj4
+vtksqlite
+vtktiff
+vtkzlib
+``
+
+编译安装
+
+.. code-block:: python
+    python setup.py build_ext -i
+    python setup.py install
+
+打包成`whl`文件,以便在**同平台的别的电脑**安装.
+
+
+ `python setup.py bdist_wheel` 
+
+在dist文件夹下会生成`python_pcl-0.3.0rc1-cp37-cp37m-linux_x86_64.whl`文件
 
 **⚠⚠ A new maintainer for this library is sought. Please see https://github.com/strawlab/python-pcl/issues/395. ⚠⚠**
 
