@@ -35,6 +35,7 @@ ubuntu18通过 **sudo apt-get install libpcl-dev pcl-tools** 安装的 **pcl为1
 编译安装
 
 .. code-block:: python
+
     python setup.py build_ext -i
     python setup.py install
 
